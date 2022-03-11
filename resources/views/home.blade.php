@@ -10,9 +10,8 @@
     <body>
         <div class="container">
             <h3>ERP Task</h3>
-            <a class="btn btn-success" href="{{ route('user.create') }}">
-                Create User
-            </a>
+            <p><a href="{{ route('user.create') }}">Create User</a></p>
+            <p><a href="/login">Login</a></p>
         </div>
     </body>
 </html>
