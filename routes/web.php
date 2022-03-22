@@ -15,6 +15,11 @@ use App\Http\Controllers\UserAuth;
 */
 
 Route::get('/', function () {
+    echo env('APP'); echo "<br />";
+    echo env('USER'); echo "<br />";
+    echo env('PASS'); echo "<br />";
+    echo env('LANG'); echo "<br />";
+    
     return view('home');
 });
 
