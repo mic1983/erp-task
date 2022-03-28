@@ -14,30 +14,4 @@ use App\Http\Controllers\UserAuth;
 |
 */
 
-Route::get('/', function () {
-    echo env('APP'); echo "<br />";
-    echo env('USER'); echo "<br />";
-    echo env('PASS'); echo "<br />";
-    echo env('LANG'); echo "<br />";
-    
-    return view('home');
-});
-
-Route::resource('user', 'UserController');
-
-Route::post("user-login", [UserAuth::class, 'userLogin']);
-Route::view("profile", 'profile');
-
-Route::get('/login', function () {
-    if (session()->has('username')) {
-        return redirect('profile');
-    }
-    return view('login');
-});
-
-Route::get('/logout', function () {
-    if (session()->has('username')) {
-        session()->pull('username');
-    }
-    return redirect('login');
-});
+Route::get('/', 'GiphyController@index');
