@@ -12,26 +12,25 @@ class GiphyController extends Controller
     public function __construct()
     {
         $this->auth = [
-            'api_key' => 'HZ3dvMtHdWK2MRUWbyuIRcyf5ZTciRfT',
-            
+            'api_key' => 'HZ3dvMtHdWK2MRUWbyuIRcyf5ZTciRfT', 
         ];
         
         $this->giphy = new Client([
-             'base_url' => 'http://api.giphy.com',
+             'base_url' => 'https://api.giphy.com',
              'headers' => $this->auth,
         ]);
     }
     
     public function index(){
     
-        // GuzzleHttp \ Exception \ ConnectException
-        // cURL error 6: Could not resolve host: v1 
+        // GuzzleHttp \ Exception \ ClientException (401)
+        // Client error: `GET https://api.giphy.com/v1/gifs/trending?limit=10` resulted in a `401 Unauthorized`
         
-        $response = $this->giphy->request('GET','v1/gifs/trending',[
+        $response = $this->giphy->request('GET','https://api.giphy.com/v1/gifs/trending',[
             'query' => [
                 'limit' => 10,
                 ],
-        ])->getBody()->getContents();
+        ])->getBody();
         
         dd($response);  
             
