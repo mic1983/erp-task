@@ -30,7 +30,7 @@ class GiphyController extends Controller
             'query' => [
                 'limit' => 10,
                 ],
-        ])->getBody();
+        ])->getBody()->getContents();
         
         dd($response);  
             
