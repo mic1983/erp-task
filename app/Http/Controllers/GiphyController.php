@@ -16,24 +16,21 @@ class GiphyController extends Controller
         ];
         
         $this->giphy = new Client([
-             'base_url' => 'https://api.giphy.com',
+             'base_uri' => 'https://api.giphy.com',
              'headers' => $this->auth,
         ]);
     }
     
     public function index(){
-    
-        // GuzzleHttp \ Exception \ ClientException (401)
-        // Client error: `GET https://api.giphy.com/v1/gifs/trending?limit=10` resulted in a `401 Unauthorized`
         
-        $response = $this->giphy->request('GET','https://api.giphy.com/v1/gifs/trending',[
-            'query' => [
-                'limit' => 10,
-                ],
+        $response = $this->giphy->request('GET','https://api.giphy.com/v1/gifs/trending?api_key=HZ3dvMtHdWK2MRUWbyuIRcyf5ZTciRfT&limit=10&rating=g',[
         ])->getBody()->getContents();
         
+        $giphy_trending = json_decode($response);
+        dd($giphy_trending);
+        
         dd($response);  
-            
+      
         return view('index');
     }    
 }
