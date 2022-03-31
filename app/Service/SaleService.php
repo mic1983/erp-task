@@ -8,6 +8,8 @@ class SalesService extends BaseService {
 
     public function readSale($id) {
         //TODO implement read sale with id
+
+        return [];
     } 
 
 } 

@@ -19,3 +19,6 @@ Route::get('/giphy', 'GiphyController@giphy');
 Route::get('/gif-detail/{id}', 'GiphyController@giphydetail');
 
 Route::get('/', 'GiphyController@giphy');
+
+
+Route::get('/example', 'AppController@getData');
